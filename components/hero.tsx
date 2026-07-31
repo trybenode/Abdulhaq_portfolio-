@@ -85,7 +85,7 @@ export default function Hero() {
               </Button>
 
               <a
-                href="/myResume.pdf"
+                href="/AbdulhaqCv.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
