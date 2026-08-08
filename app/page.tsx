@@ -1,4 +1,14 @@
 import dynamic from "next/dynamic";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Abdulrasheed Olabanji builds secure, scalable products using Next.js, React Native, AI, and modern engineering practices.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const Hero = dynamic(() => import("@/components/hero"));
 const About = dynamic(() => import("@/components/about"));

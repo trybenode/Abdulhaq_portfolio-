@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink, Github, Search } from "lucide-react";
@@ -7,6 +8,15 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getProjectImages, projectsData } from "@/lib/projects-data";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Explore Abdulrasheed Olabanji's portfolio of AI, fintech, cybersecurity, and full-stack product projects built with modern technologies.",
+  alternates: {
+    canonical: "/projects",
+  },
+};
 
 export default function ProjectsPage() {
   return (

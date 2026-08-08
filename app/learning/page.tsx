@@ -7,11 +7,15 @@ import CurrentCourses from "@/components/learning/current-courses";
 import AIReflections from "@/components/learning/ai-reflections";
 import LearningStats from "@/components/learning/learning-stats";
 import { Tabs } from "@radix-ui/react-tabs";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Learning Dashboard | Abdulrasheed Olabanji",
+export const metadata: Metadata = {
+  title: "Learning Dashboard",
   description:
-    "Track my learning journey, course progress, and development goals in real-time",
+    "Track Abdulrasheed Olabanji's learning journey, current courses, roadmap, and technical growth across software engineering and AI.",
+  alternates: {
+    canonical: "/learning",
+  },
 };
 
 export default function LearningDashboard() {

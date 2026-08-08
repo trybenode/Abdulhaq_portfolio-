@@ -14,10 +14,66 @@ const oldStandard = Old_Standard_TT({
 })
 
 export const metadata: Metadata = {
-  title: "Abdulrasheed Olabanji | Software Engineer",
+  metadataBase: new URL("https://www.abdulrasheedolabanji.com"),
+  title: {
+    default: "Abdulrasheed Olabanji | Software Engineer & AI Builder",
+    template: "%s | Abdulrasheed Olabanji",
+  },
   description:
-    "Portfolio of Abdulrasheed Olabanji, a software engineer specializing in web development, AI integration, and cybersecurity",
-   
+    "Software engineer and AI builder building secure, scalable digital products across web, mobile, AI, and cybersecurity spaces.",
+  applicationName: "Abdulrasheed Olabanji",
+  authors: [{ name: "Abdulrasheed Olabanji", url: "https://www.abdulrasheedolabanji.com" }],
+  keywords: [
+    "Abdulrasheed Olabanji",
+    "Software Engineer",
+    "AI Engineer",
+    "Next.js Developer",
+    "Full-Stack Developer",
+    "Cybersecurity",
+    "React Native",
+    "Portfolio",
+    "Web Development",
+    "Nigeria Tech",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Abdulrasheed Olabanji | Software Engineer & AI Builder",
+    description:
+      "Portfolio of Abdulrasheed Olabanji, a software engineer creating secure, scalable digital experiences with AI, web, and mobile technologies.",
+    url: "https://www.abdulrasheedolabanji.com",
+    siteName: "Abdulrasheed Olabanji",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "Abdulrasheed Olabanji portfolio preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abdulrasheed Olabanji | Software Engineer & AI Builder",
+    description:
+      "Software engineer and AI builder building secure, scalable digital products across web, mobile, AI, and cybersecurity spaces.",
+    images: ["/og-image.svg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "technology",
 }
 
 export default function RootLayout({
