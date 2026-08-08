@@ -63,9 +63,9 @@ export default function Hero() {
                 Impossible
               </motion.h4>
 
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+              <h1 className="text-xl md:text-3xl font-semibold mb-4">
                 Hi, I'm Abdulrasheed Olabanji
-              </h2>
+              </h1>
 
               <p className="text-lg mb-8 text-muted-foreground max-w-2xl mx-auto lg:mx-0">
                 IT Guy driven by a deep curiosity and a hands-on approach to

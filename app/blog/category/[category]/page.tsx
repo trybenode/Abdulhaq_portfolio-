@@ -1,7 +1,24 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { notFound } from "next/navigation"
 import { blogPosts } from "@/lib/blog-data"
+
+export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
+  const category = params.category.replace(/-/g, " ")
+  const categoryTitle = category
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ")
+
+  return {
+    title: `${categoryTitle} Articles`,
+    description: `Browse software engineering, AI, and product articles in the ${categoryTitle.toLowerCase()} category by Abdulrasheed Olabanji.`,
+    alternates: {
+      canonical: `/blog/category/${params.category}`,
+    },
+  }
+}
 
 export default function CategoryPage({ params }) {
   const category = params.category.replace(/-/g, " ")
