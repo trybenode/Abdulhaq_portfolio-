@@ -132,7 +132,7 @@ export const projectsData: ProjectRecord[] = [
     title: "Vigalentee",
     description:
       "Vigalentee is a full-stack campus safety platform that enables students and staff to report incidents anonymously, receive AI-assisted severity classification, and trigger real-time alerts for campus security through a mobile app and web dashboard.",
-    image: "apps/mobile/assets/icon.png",
+    images: ["/Vgl1.png", "/Vgl2.png", "/Vgl3.png","vgl4.jpeg","/Vgl5.jpeg","/Vgl6.jpeg"],
     category: "Full-Stack / AI Safety Platform",
     features: [
       "Anonymous incident reporting",
@@ -169,14 +169,14 @@ export const projectsData: ProjectRecord[] = [
       "Zod",
     ],
     github: "https://github.com/Abdul1013/vigalentee.git",
-    live: "",
+    live: "https://vigalentee-web-dashboard.vercel.app/",
   },
   {
     id: 4,
     title: "LibraFlow AI",
     description:
       "LibraFlow AI is an intelligent library resource management system built for Lead City University. It streamlines book cataloguing, circulation, borrowing, returns, and overdue tracking while integrating fuzzy book search and personalized recommendations for a smarter library experience.",
-    image: "https://placehold.co/1200x700/245F73/F2F0EF?text=LibraFlow+AI",
+    images: ["lb1.png", "lb2.png", "lb3.png","lb4.png"],
     category: "AI-Powered Library Management System",
     features: [
       "Intelligent fuzzy search for books",
@@ -210,15 +210,15 @@ export const projectsData: ProjectRecord[] = [
       "Railway",
       "Vercel",
     ],
-    github: "https://github.com/yourusername/libraflow",
-    live: "https://your-deployment-url.com",
+    github: "https://github.com/abdul1013/libraflow",
+    live: "https://libraflow-beta.vercel.app/",
   },
   {
     id: 5,
     title: "EventFlow",
     description:
       "EventFlow is a full-stack event ticketing and check-in platform that helps organizers manage events, issue QR tickets, optimize seating, and handle high-traffic check-ins reliably.",
-    category: "Full-Stack Event Management Platform",
+    images:["evf1.png","evf2.png","evf3.png","evf4.png","evf5.png","evf6.png","evf7.png", "evf8.png"],category: "Full-Stack Event Management Platform",
     features: [
       "Monorepo architecture with shared types and UI packages",
       "Admin dashboard for event, venue, ticket, and attendee management",
@@ -260,8 +260,8 @@ export const projectsData: ProjectRecord[] = [
       "Render",
       "Vercel",
     ],
-    gitHub: "https://github.com/your-username/eventflow_backend",
-    live: "https://eventflow-api-n9a7.onrender.com/api/v1",
+    gitHub: "https://github.com/abdul1013/eventflow_backend",
+    live: "https://eventflowng.store/events",
   },
   {
     id: 6,
@@ -269,6 +269,7 @@ export const projectsData: ProjectRecord[] = [
     description:
       "A role-aware full-stack bulletin platform designed to replace fragmented WhatsApp and memo-based communication at Lead City University with a single, secure, real-time announcement system for students, staff, and administrators.",
     category: "Full-Stack Web Application",
+    images: ["/ibms1.png", "/ibms2.png", "/ibms3.png", "/ibms4.png", "/ibms5.png", "/ibms6.png", "/ibms7.png", "/ibms8.png"],
     features: [
       "Role-based access control for guest, student, staff, and admin interfaces",
       "Drafting, approval, publishing, and archival workflow for announcements",
