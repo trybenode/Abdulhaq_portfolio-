@@ -1,7 +1,23 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { notFound } from "next/navigation"
 import { blogPosts } from "@/lib/blog-data"
+
+export async function generateMetadata({ params }: { params: { tag: string } }): Promise<Metadata> {
+  const tagTitle = params.tag
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ")
+
+  return {
+    title: `${tagTitle} Articles`,
+    description: `Explore articles and insights related to ${tagTitle} by Abdulrasheed Olabanji.`,
+    alternates: {
+      canonical: `/blog/tag/${params.tag}`,
+    },
+  }
+}
 
 export default function TagPage({ params }) {
   const tag = params.tag

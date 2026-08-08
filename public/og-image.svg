@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0B1020"/>
+  <rect x="48" y="48" width="1104" height="534" rx="28" fill="#111827" stroke="#2DD4BF" stroke-opacity="0.7"/>
+  <circle cx="180" cy="170" r="80" fill="#14B8A6" fill-opacity="0.2"/>
+  <circle cx="1020" cy="430" r="120" fill="#7C3AED" fill-opacity="0.2"/>
+  <text x="96" y="220" fill="#E5E7EB" font-family="Arial, sans-serif" font-size="34" font-weight="700">ABDULRASHEED OLABANJI</text>
+  <text x="96" y="300" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="72" font-weight="700">Software Engineer</text>
+  <text x="96" y="370" fill="#2DD4BF" font-family="Arial, sans-serif" font-size="72" font-weight="700">&amp; AI Builder</text>
+  <text x="96" y="455" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="30">Next.js • React Native • Cybersecurity • Full-Stack</text>
+  <text x="96" y="515" fill="#94A3B8" font-family="Arial, sans-serif" font-size="24">abdulrasheedolabanji.com</text>
+</svg>

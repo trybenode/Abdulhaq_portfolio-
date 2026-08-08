@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -15,7 +16,48 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ProjectGallery } from "@/components/project-gallery";
-import { projectsData } from "@/lib/projects-data";
+import { getProjectImages, projectsData } from "@/lib/projects-data";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.abdulrasheedolabanji.com"
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const project = projectsData.find((item) => item.id.toString() === params.id)
+
+  if (!project) {
+    return {
+      title: "Project not found",
+      description: "The requested project could not be found.",
+    }
+  }
+
+  return {
+    title: project.title,
+    description: project.description,
+    alternates: {
+      canonical: `/projects/${project.id}`,
+    },
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      url: `${siteUrl}/projects/${project.id}`,
+      type: "website",
+      images: [
+        {
+          url: getProjectImages(project)[0] || "/og-image.svg",
+          width: 1200,
+          height: 630,
+          alt: `${project.title} project preview`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+      images: [getProjectImages(project)[0] || "/og-image.svg"],
+    },
+  }
+}
 
 export default function ProjectDetailPage({
   params,
