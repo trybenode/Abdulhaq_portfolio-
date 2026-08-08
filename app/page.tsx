@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+import HomeStructuredData from "@/components/structured-data";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -20,14 +21,17 @@ const Contact = dynamic(() => import("@/components/contact"));
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Hero />
-      <About />
-      <Skills />
-      <SkillSection />
-      <Projects />
-      <Blog />
-      <Contact />
-    </main>
+    <>
+      <HomeStructuredData />
+      <main className="min-h-screen">
+        <Hero />
+        <About />
+        <Skills />
+        <SkillSection />
+        <Projects />
+        <Blog />
+        <Contact />
+      </main>
+    </>
   );
 }
