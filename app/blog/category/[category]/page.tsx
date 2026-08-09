@@ -4,8 +4,9 @@ import { ArrowLeft } from "lucide-react"
 import { notFound } from "next/navigation"
 import { blogPosts } from "@/lib/blog-data"
 
-export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
-  const category = params.category.replace(/-/g, " ")
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
+  const { category: categoryParam } = await params
+  const category = categoryParam.replace(/-/g, " ")
   const categoryTitle = category
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -15,13 +16,14 @@ export async function generateMetadata({ params }: { params: { category: string 
     title: `${categoryTitle} Articles`,
     description: `Browse software engineering, AI, and product articles in the ${categoryTitle.toLowerCase()} category by Abdulrasheed Olabanji.`,
     alternates: {
-      canonical: `/blog/category/${params.category}`,
+      canonical: `/blog/category/${categoryParam}`,
     },
   }
 }
 
-export default function CategoryPage({ params }) {
-  const category = params.category.replace(/-/g, " ")
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category: categoryParam } = await params
+  const category = categoryParam.replace(/-/g, " ")
   const categoryTitle = category
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

@@ -20,8 +20,9 @@ import { getProjectImages, projectsData } from "@/lib/projects-data";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.abdulrasheedolabanji.com"
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const project = projectsData.find((item) => item.id.toString() === params.id)
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const project = projectsData.find((item) => item.id.toString() === id)
 
   if (!project) {
     return {
@@ -59,12 +60,13 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 }
 
-export default function ProjectDetailPage({
+export default async function ProjectDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const project = projectsData.find((p) => p.id.toString() === params.id);
+  const { id } = await params
+  const project = projectsData.find((p) => p.id.toString() === id);
 
   if (!project) {
     notFound();

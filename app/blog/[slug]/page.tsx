@@ -12,8 +12,9 @@ import { blogPosts } from "@/lib/blog-data"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.abdulrasheedolabanji.com"
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = blogPosts.find((item) => item.slug === params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = blogPosts.find((item) => item.slug === slug)
 
   if (!post) {
     return {
@@ -51,14 +52,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-// interface BlogPostPageParams {
-//   slug: string;
-// }
-
-// export default function BlogPostPage({ params }: { params: BlogPostPageParams }) {
-//   const post = blogPosts.find((post) => post.slug === params.slug)
-export default function BlogPostPage({ params }) {
-  const post = blogPosts.find((post) => post.slug === params.slug)
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = blogPosts.find((post) => post.slug === slug)
 
   if (!post) {
     notFound()

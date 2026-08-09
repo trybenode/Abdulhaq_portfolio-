@@ -4,8 +4,9 @@ import { ArrowLeft } from "lucide-react"
 import { notFound } from "next/navigation"
 import { blogPosts } from "@/lib/blog-data"
 
-export async function generateMetadata({ params }: { params: { tag: string } }): Promise<Metadata> {
-  const tagTitle = params.tag
+export async function generateMetadata({ params }: { params: Promise<{ tag: string }> }): Promise<Metadata> {
+  const { tag } = await params
+  const tagTitle = tag
     .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ")
@@ -14,13 +15,13 @@ export async function generateMetadata({ params }: { params: { tag: string } }):
     title: `${tagTitle} Articles`,
     description: `Explore articles and insights related to ${tagTitle} by Abdulrasheed Olabanji.`,
     alternates: {
-      canonical: `/blog/tag/${params.tag}`,
+      canonical: `/blog/tag/${tag}`,
     },
   }
 }
 
-export default function TagPage({ params }) {
-  const tag = params.tag
+export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
+  const { tag } = await params
   const tagTitle = tag.charAt(0).toUpperCase() + tag.slice(1)
 
   // In a real application, you would have tags associated with each post
