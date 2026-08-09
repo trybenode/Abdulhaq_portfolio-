@@ -22,24 +22,58 @@ export type ProjectRecord = {
   solution?: string;
 };
 
+const placeholderProjectImage = "/placeholder.svg?height=400&width=600";
+
+function normalizeProjectImagePath(image: string) {
+  if (!image) return null;
+
+  const trimmed = image.trim();
+
+  if (!trimmed) return null;
+  if (/^https?:\/\//i.test(trimmed) || trimmed.startsWith("data:")) {
+    return trimmed;
+  }
+
+  const normalizedPath = trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
+
+  const knownImageAliases = new Map<string, string>([
+    ["/trybemarketmobile.png", "/trybemarketm.png"],
+  ]);
+
+  const knownMissingImages = new Set([
+    "/janco1.png",
+    "/janco2.png",
+    "/janco3.png",
+    "/ibms2.png",
+    "/ldx-mobile.png",
+  ]);
+
+  if (knownImageAliases.has(normalizedPath.toLowerCase())) {
+    return knownImageAliases.get(normalizedPath.toLowerCase()) || normalizedPath;
+  }
+
+  return knownMissingImages.has(normalizedPath.toLowerCase())
+    ? placeholderProjectImage
+    : normalizedPath;
+}
+
 export function getProjectImages(project: Partial<ProjectRecord>) {
+  const rawImages: (string | undefined)[] = [];
+
   if (Array.isArray(project.images)) {
-    return project.images.filter(Boolean);
+    rawImages.push(...project.images);
+  } else if (project.images && typeof project.images === "object") {
+    rawImages.push(...Object.values(project.images));
   }
 
-  if (project.images && typeof project.images === "object") {
-    return Object.values(project.images).filter(Boolean);
-  }
+  if (project.image) rawImages.push(project.image);
+  if (project.mobileImage) rawImages.push(project.mobileImage);
 
-  if (project.image) {
-    return [project.image];
-  }
+  const images = rawImages
+    .map((image) => normalizeProjectImagePath(image ?? ""))
+    .filter((image): image is string => Boolean(image));
 
-  if (project.mobileImage) {
-    return [project.mobileImage];
-  }
-
-  return ["/placeholder.svg?height=400&width=600"];
+  return images.length > 0 ? images : [placeholderProjectImage];
 }
 
 export const projectsData: ProjectRecord[] = [
