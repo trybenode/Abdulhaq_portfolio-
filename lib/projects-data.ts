@@ -50,15 +50,9 @@ export const projectsData: ProjectRecord[] = [
       "A decentralized, cross-platform campus marketplace ecosystem. It enables students to buy/sell goods, hire services, and build personal brands, utilizing a unified backend to serve both web and mobile users seamlessly.",
     platforms: ["web", "mobile"],
     images: ["/trybemarketWeb.png", "/trybemarketMobile.png", "/ldx.png"],
-    links: {
-      github: {
-        web: "https://github.com/trybenode/trybemarket-web",
-        mobile: "https://github.com/trybenode/marketTrybe",
-      },
-      live: {
-        web: "https://trybemarket.vercel.app/",
-      },
-    },
+    github: "https://github.com/trybenode/trybemarket-web",
+    live: "https://trybemarket.vercel.app/",
+
     tags: ["React Ecosystem", "Firebase", "TailwindCSS"],
     features: [
       "Cross-platform product/service listing and management dashboard",
@@ -88,8 +82,22 @@ export const projectsData: ProjectRecord[] = [
     title: "Janco",
     description:
       "AI-powered janitorial services platform for Nigeria with on-demand and subscription cleaning, intelligent janitor matching, area-based pricing, and admin operations.",
-    image: "",
-    category: "AI-enabled service marketplace",
+    platforms: ["web", "mobile"],
+    images: ["/janco1.png", "/janco2.png", "/janco3.png"],
+
+    github: "",
+
+    live: "",
+
+    tags: [
+      "AI",
+      "React Native",
+      "FastAPI",
+      "Supabase",
+      "Machine Learning",
+      "Logistics",
+      "Marketplace",
+    ],
     features: [
       "Cross-platform mobile booking app",
       "FastAPI backend with async Python services",
@@ -99,15 +107,6 @@ export const projectsData: ProjectRecord[] = [
       "Supabase authentication and storage",
       "Push notifications via Firebase and WhatsApp",
       "Admin dashboard for operations and monitoring",
-    ],
-    tags: [
-      "AI",
-      "React Native",
-      "FastAPI",
-      "Supabase",
-      "Machine Learning",
-      "Logistics",
-      "Marketplace",
     ],
     technologies: [
       "React Native",
@@ -124,24 +123,31 @@ export const projectsData: ProjectRecord[] = [
       "Termii",
       "Paystack",
     ],
-    github: "",
-    live: "",
+    collaborated: false,
+    challenge:
+      "JANCO needed to transform a fragmented cleaning marketplace into a trustworthy, scalable, and reliable platform that could handle fair pricing, janitor verification, worker matching, payments, and low-bandwidth environments.",
+    solution:
+      "Designed JANCO around a backend-first FastAPI architecture, centralizing authentication, pricing, trust scoring, and worker dispatch. A weighted matching system considers distance, quality, fairness, and skills, while configurable pricing and verification improve security, scalability, transparency, and reliability.",
   },
   {
     id: 3,
     title: "Vigalentee",
     description:
       "Vigalentee is a full-stack campus safety platform that enables students and staff to report incidents anonymously, receive AI-assisted severity classification, and trigger real-time alerts for campus security through a mobile app and web dashboard.",
-    images: ["/Vgl1.png", "/Vgl2.png", "/Vgl3.png","vgl4.jpeg","/Vgl5.jpeg","/Vgl6.jpeg"],
-    category: "Full-Stack / AI Safety Platform",
-    features: [
-      "Anonymous incident reporting",
-      "One-tap SOS emergency reporting",
-      "AI-based incident severity classification",
-      "GPS-based location capture",
-      "Real-time security dashboard alerts",
-      "Role-based authentication and access control",
+    platforms: ["web", "mobile"],
+    images: [
+      "/Vgl1.png",
+      "/Vgl2.png",
+      "/Vgl3.png",
+      "vgl4.jpeg",
+      "/Vgl5.jpeg",
+      "/Vgl6.jpeg",
     ],
+
+    github: "https://github.com/Abdul1013/vigalentee.git",
+
+    live: "https://vigalentee-web-dashboard.vercel.app/",
+
     tags: [
       "Campus Safety",
       "Incident Reporting",
@@ -149,6 +155,14 @@ export const projectsData: ProjectRecord[] = [
       "Real-Time Alerts",
       "Security",
       "Full-Stack",
+    ],
+    features: [
+      "Anonymous incident reporting",
+      "One-tap SOS emergency reporting",
+      "AI-based incident severity classification",
+      "GPS-based location capture",
+      "Real-time security dashboard alerts",
+      "Role-based authentication and access control",
     ],
     technologies: [
       "TypeScript",
@@ -168,16 +182,33 @@ export const projectsData: ProjectRecord[] = [
       "Zustand",
       "Zod",
     ],
-    github: "https://github.com/Abdul1013/vigalentee.git",
-    live: "https://vigalentee-web-dashboard.vercel.app/",
+    collaborated: false,
+    challenge:
+      "Architecting a secure, scalable campus incident reporting ecosystem that spans both web and mobile devices, while balancing fast student onboarding with strict trust, privacy, and synchronized performance requirements.",
+    solution:
+      "Built a centralized backend using Node.js, PostgreSQL, and Firebase-integrated services, with a Python-based AI incident classification and priority rating system secured with JWT authentication and role-based access control, paired with modular React web and React Native mobile applications.",
   },
   {
     id: 4,
     title: "LibraFlow AI",
     description:
       "LibraFlow AI is an intelligent library resource management system built for Lead City University. It streamlines book cataloguing, circulation, borrowing, returns, and overdue tracking while integrating fuzzy book search and personalized recommendations for a smarter library experience.",
-    images: ["lb1.png", "lb2.png", "lb3.png","lb4.png"],
-    category: "AI-Powered Library Management System",
+    platforms: ["web"],
+    images: ["lb1.png", "lb2.png", "lb3.png", "lb4.png"],
+
+    github: "https://github.com/abdul1013/libraflow",
+
+    live: "https://libraflow-beta.vercel.app/",
+
+    tags: [
+      "FastAPI",
+      "Next.js",
+      "PostgreSQL",
+      "Library Tech",
+      "AI Recommendations",
+      "Full-Stack",
+      "University Project",
+    ],
     features: [
       "Intelligent fuzzy search for books",
       "Real-time book availability tracking",
@@ -187,15 +218,6 @@ export const projectsData: ProjectRecord[] = [
       "Analytics dashboard for library usage insights",
       "Mobile-friendly responsive interface",
       "Secure authentication and protected user access",
-    ],
-    tags: [
-      "FastAPI",
-      "Next.js",
-      "PostgreSQL",
-      "Library Tech",
-      "AI Recommendations",
-      "Full-Stack",
-      "University Project",
     ],
     technologies: [
       "Python",
@@ -210,23 +232,34 @@ export const projectsData: ProjectRecord[] = [
       "Railway",
       "Vercel",
     ],
-    github: "https://github.com/abdul1013/libraflow",
-    live: "https://libraflow-beta.vercel.app/",
+    collaborated: false,
+    challenge:
+      "The main technical problem was creating a reliable library management system that could handle concurrent borrow/return actions, fuzzy book discovery, and personalized recommendations without data inconsistency or poor performance. The codebase shows this was solved in a real production-style setup using async database access, rule-heavy business logic, and a full-stack architecture",
+    solution:
+      "The solution was a FastAPI + SQLModel + PostgreSQL backend with transaction-safe services, including row-level locking in the circulation logic to prevent race conditions on available copies and overdue status updates. Search uses a hybrid DB filter + rapidfuzz Levenshtein scoring for typo-tolerant results, and recommendations combine collaborative filtering with category popularity; the frontend is a Next.js app that surfaces admin/student flows in a clean, responsive interface.",
   },
   {
     id: 5,
     title: "EventFlow",
     description:
       "EventFlow is a full-stack event ticketing and check-in platform that helps organizers manage events, issue QR tickets, optimize seating, and handle high-traffic check-ins reliably.",
-    images:["evf1.png","evf2.png","evf3.png","evf4.png","evf5.png","evf6.png","evf7.png", "evf8.png"],category: "Full-Stack Event Management Platform",
-    features: [
-      "Monorepo architecture with shared types and UI packages",
-      "Admin dashboard for event, venue, ticket, and attendee management",
-      "Attendee web experience for event discovery and ticket access",
-      "React Native staff app for fast QR-based check-in",
-      "Python seat-allocation microservice for smart utilization",
-      "Redis-backed QR token validation and high-concurrency support",
+    platforms: ["web", "mobile"],
+    images: [
+      "evf1.png",
+      "evf2.png",
+      "evf3.png",
+      "evf4.png",
+      "evf5.jpeg",
+      "evf6.png",
+      "evf7.jpeg",
+      "evf8.jpeg",
     ],
+ 
+      github:  "https://github.com/abdul1013/eventflow_backend",
+    
+ 
+      live: "https://eventflowng.store/events",
+    
     tags: [
       "EventTech",
       "Ticketing",
@@ -240,6 +273,14 @@ export const projectsData: ProjectRecord[] = [
       "Prisma",
       "PostgreSQL",
       "Redis",
+    ],
+    features: [
+      "Monorepo architecture with shared types and UI packages",
+      "Admin dashboard for event, venue, ticket, and attendee management",
+      "Attendee web experience for event discovery and ticket access",
+      "React Native staff app for fast QR-based check-in",
+      "Python seat-allocation microservice for smart utilization",
+      "Redis-backed QR token validation and high-concurrency support",
     ],
     technologies: [
       "Node.js",
@@ -260,24 +301,34 @@ export const projectsData: ProjectRecord[] = [
       "Render",
       "Vercel",
     ],
-    gitHub: "https://github.com/abdul1013/eventflow_backend",
-    live: "https://eventflowng.store/events",
+    collaborated: false,
+    challenge:
+      "The main technical problem was scaling event check-in and seat allocation under high concurrency without making the API slow or inconsistent. QR validation and allocation logic were both latency-sensitive and database-heavy, so peak traffic could create long p99 latency, ticket replay risk, and poor seat utilization under load.",
+    solution:
+      "The project split the system into a TypeScript API backed by PostgreSQL and Redis, plus a separate Python SAO microservice for heavy seat-allocation compute. QR tokens are short-lived, HMAC-signed, and validated atomically in Redis to avoid expensive DB checks and prevent reuse; allocations run asynchronously through the SAO service so the API stays responsive. Shared type contracts in the monorepo and Prisma-based data access keep the stack consistent and reduce integration drift.",
   },
   {
     id: 6,
     title: "Interactive Bulletin Management System",
     description:
       "A role-aware full-stack bulletin platform designed to replace fragmented WhatsApp and memo-based communication at Lead City University with a single, secure, real-time announcement system for students, staff, and administrators.",
-    category: "Full-Stack Web Application",
-    images: ["/ibms1.png", "/ibms2.png", "/ibms3.png", "/ibms4.png", "/ibms5.png", "/ibms6.png", "/ibms7.png", "/ibms8.png"],
-    features: [
-      "Role-based access control for guest, student, staff, and admin interfaces",
-      "Drafting, approval, publishing, and archival workflow for announcements",
-      "Real-time updates and notifications powered by Socket.IO",
-      "Comments, reactions, and acknowledgement tracking for engagement",
-      "Analytics dashboard for admin monitoring and post-performance insights",
-      "Secure authentication and API protection with JWT, Redis, and rate limiting",
+    platforms: ["web"],
+    images: [
+      "/ibms1.png",
+      "/ibms2.png",
+      "/ibms3.png",
+      "/ibms4.png",
+      "/ibms5.png",
+      "/ibms6.png",
+      "/ibms7.png",
+      "/ibms8.png",
     ],
+   
+      github: 
+       "https://github.com/abdul1013/IBMS",
+     
+      live: "https://ibms.online/",
+     
     tags: [
       "University",
       "Bulletin Board",
@@ -285,6 +336,14 @@ export const projectsData: ProjectRecord[] = [
       "Real-Time",
       "Analytics",
       "Full-Stack",
+    ],
+    features: [
+      "Role-based access control for guest, student, staff, and admin interfaces",
+      "Drafting, approval, publishing, and archival workflow for announcements",
+      "Real-time updates and notifications powered by Socket.IO",
+      "Comments, reactions, and acknowledgement tracking for engagement",
+      "Analytics dashboard for admin monitoring and post-performance insights",
+      "Secure authentication and API protection with JWT, Redis, and rate limiting",
     ],
     technologies: [
       "React 18",
@@ -305,24 +364,22 @@ export const projectsData: ProjectRecord[] = [
       "TipTap",
       "Recharts",
     ],
-    gitHub: "https://github.com/abdul1013/IBMS",
-    live: "https://ibms.online/",
+    collaborated: false,
+    challenge:
+      "The university had fragmented communication across memos, WhatsApp, and manual approval chains, making it hard to publish and track official updates securely. Technically, the system needed one role-aware platform with strong access control, secure auth, real-time updates, file uploads, analytics, and consistent data handling across MongoDB, Redis, and a React frontend.",
+    solution:
+      "The project implemented a TypeScript full-stack architecture: Express + Node.js for the API, React + Vite for the UI, MongoDB for persistent bulletin data, Redis for session/refresh-token support and live cache, and Socket.IO for real-time bulletin notifications. Auth is enforced with JWTs and refresh cookies, role-based middleware restricts access by user type, API security includes rate limiting and NoSQL input sanitization, Cloudinary handles attachments, and automated archiving keeps older content manageable. Frontend rendering is role-specific, while Render and Vercel host the backend and frontend separately.",
   },
   {
     id: 7,
     title: "Voxza",
     description:
       "A full-stack AI-powered video journaling platform that lets users record short video entries, and receive automatic transcription, summarization, mood analysis, and semantic search insights through a React Native mobile app.",
-    image: "",
-    category: "Full-Stack AI App",
-    features: [
-      "Short-video capture and upload",
-      "AI transcription and content analysis",
-      "Emotion, mood, and action-item extraction",
-      "Semantic search across journal entries",
-      "Secure authentication, storage, and sharing",
-      "Background processing with Celery",
-    ],
+    platforms: ["mobile"],
+    images: [],
+
+      github: "https://github.com/abdul1013/voxza",
+      live:"",
     tags: [
       "AI",
       "Video",
@@ -332,6 +389,14 @@ export const projectsData: ProjectRecord[] = [
       "Python",
       "Celery",
       "PostgreSQL",
+    ],
+    features: [
+      "Short-video capture and upload",
+      "AI transcription and content analysis",
+      "Emotion, mood, and action-item extraction",
+      "Semantic search across journal entries",
+      "Secure authentication, storage, and sharing",
+      "Background processing with Celery",
     ],
     technologies: [
       "Python",
@@ -349,21 +414,25 @@ export const projectsData: ProjectRecord[] = [
       "Google Cloud Storage",
       "Supabase",
     ],
-    gitHub: "",
-    live: "",
+    collaborated: false,
+    challenge:
+      "The core technical problem was that video upload and AI analysis were too heavy to run inline in the FastAPI request path: ffmpeg audio extraction, Google Speech transcription, and Gemini summarization/insight generation create long latency, high memory usage, and fragile failure handling when the user waits for the upload to finish",
+    solution:
+      "The project separated the fast path from the expensive path by moving analysis into a Celery + Redis background pipeline. The API accepts uploads quickly, stores metadata in PostgreSQL/Supabase, and queues processing jobs; workers then stream video from GCS, extract audio in parallel with ffmpeg, transcribe with Google Cloud Speech, and analyze content with Gemini, updating result state asynchronously for processed or failed jobs.",
   },
-
   {
     id: 8,
     title: "LDX Streetwear",
     description:
       "A modern e-commerce platform for LDX — a contemporary streetwear fashion brand offering curated collections of urban apparel, accessories, and limited-edition drops for fashion-forward individuals.",
-    image: "/ldx.png",
-    mobileImage: "/ldx-mobile.png",
+    platforms: ["web"],
+    images: ["/ldx.png", "/ldx-mobile.png"],
+    
+      github:  "",
+       
+      live: "https://ldx-fashion.vercel.app/",
+   
     tags: ["Next.js", "Paystack", "TailwindCSS", "Firebase"],
-    category: "fullstack",
-    github: "",
-    live: "https://ldx-fashion.vercel.app/",
     features: [
       "Product catalog with advanced filtering (size, color, style, collection)",
       "Interactive lookbook and style guides",
@@ -378,31 +447,33 @@ export const projectsData: ProjectRecord[] = [
     technologies: [
       "Next.js",
       "Node.js",
-      "Firebase MongoDB",
+      "Firebase",
+      "MongoDB",
       "Paystack API",
       "TailwindCSS",
       "Redux",
       "Cloudinary",
       "SendGrid",
     ],
-    platforms: ["Web"],
     collaborated: false,
     challenge:
       "Creating a visually stunning, high-performance e-commerce platform that captures the brand's edgy streetwear aesthetic while handling inventory management, secure payments, and providing an engaging shopping experience across devices.",
     solution:
-      "Built a headless e-commerce solution using Next.js for optimal performance and SEO, integrated Stripe for seamless payments, implemented real-time inventory tracking with MongoDB, and designed a mobile-first interface that showcases products with high-quality imagery and smooth animations to enhance the brand's urban identity.",
+      "Built a headless e-commerce solution using Next.js for optimal performance and SEO, integrated payment processing, implemented real-time inventory tracking with MongoDB, and designed a mobile-first interface that showcases products with high-quality imagery and smooth animations to enhance the brand's urban identity.",
   },
   {
-    id: 4,
+    id: 9,
     title: "ChillinPay",
     description:
       "A frictionless fintech payment platform built for Nigerian businesses to eliminate payment losses, inaccurate sales records, and time waste — enabling instant, no-signup payments with cutting-edge security and seamless integration.",
-    image: "/chillingpay.png",
+    platforms: ["web"],
+    images: ["/chillingpay.png"],
+   
+      github:  "https://github.com/Abdul1013/payee",
+     
+      live: "https://dashboard-ky1tfd13t-abdul1013s-projects.vercel.app/",
+    
     tags: ["Next.js", "TailwindCSS"],
-    category: "web",
-    github: "https://github.com/Abdul1013/payee",
-    mobileGithub: null,
-    live: "https://dashboard-ky1tfd13t-abdul1013s-projects.vercel.app/",
     features: [
       "No-signup payment experience for customers",
       "Order tag-based instant payment processing",
@@ -423,23 +494,25 @@ export const projectsData: ProjectRecord[] = [
       "SendGrid",
       "Vercel",
     ],
-    platforms: ["Web"],
     collaborated: false,
     challenge:
       "Creating a payment solution that eliminates customer friction by removing signup requirements while maintaining security, building trust in Nigeria's fintech space, and providing businesses with accurate, real-time payment tracking without complex integration processes.",
     solution:
-      "Developed a lightweight, algorithm-driven payment platform with order tag-based transactions that allow instant payments without user accounts, implemented enterprise-grade encryption for security, designed a beautiful landing page with engaging animations to communicate simplicity and trust, built a seamless merchant API that integrates in minutes, and created an intuitive dashboard that gives businesses real-time insights into their payment flows and sales records.",
+      "Developed a lightweight, algorithm-driven payment platform with order tag-based transactions that allow instant payments without user accounts, implemented encryption for security, designed an engaging interface to communicate simplicity and trust, built a merchant API, and created an intuitive dashboard for real-time payment and sales insights.",
   },
   {
-    id: 5,
+    id: 10,
     title: "VEHICULARS",
     description:
       "A comprehensive vehicle management platform delivering technology-driven solutions across Nigeria — from vehicle registration and driver's licenses to peer-to-peer auto financing, spare parts marketplace, roadside assistance, and auto port clearing services.",
-    image: "/Vehicular.jpg",
+    platforms: ["web", "mobile"],
+    images: ["/Vehicular.jpg"],
+   
+      github:  "https://github.com/yourusername/vehiculars",
+      
+      live:  "https://vehicula.vercel.app/",
+   
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Paystack"],
-    category: "fullstack",
-    github: "https://github.com/yourusername/vehiculars",
-    live: "https://vehicula.vercel.app/",
     features: [
       "Vehicle registration and documentation management",
       "Driver's license application and renewal processing",
@@ -466,33 +539,38 @@ export const projectsData: ProjectRecord[] = [
       "AWS S3",
       "Socket.io",
     ],
-    platforms: ["Web", "Mobile (iOS/Android)"],
     collaborated: false,
     challenge:
       "Migrating legacy PHP codebase to modern stack while reducing cognitive overload from complex, multi-service workflows; ensuring seamless integration of diverse vehicle-related services; and building trust in a market with fragmented service providers and documentation processes.",
     solution:
-      "Re-architected the entire platform using Next.js and TypeScript for type safety and better performance, redesigned the UX with intuitive step-by-step workflows to simplify complex processes, implemented a unified service dashboard that reduces navigation complexity, integrated real-time tracking for transparency, and built a robust API layer that connects multiple service providers while maintaining a consistent user experience across all vehicle management needs.",
+      "Re-architected the platform using Next.js and TypeScript for type safety and performance, redesigned the UX with intuitive step-by-step workflows, implemented a unified service dashboard, integrated real-time tracking, and built a robust API layer connecting multiple service providers.",
   },
-
   {
-    id: 6,
+    id: 11,
     title: "Car E-commerce Platform",
     description:
       "A scalable and secure Django-based platform featuring advanced search, inventory management, payment integration, user authentication, order tracking, and an admin dashboard for dealers.",
-    image: "/carEcommerce.png",
+    platforms: ["web"],
+    images: ["/carEcommerce.png"],
+    links: {
+      github: {
+        web: "https://github.com/Abdul1013/Car-Selling-Web-App",
+        mobile: "",
+      },
+      live: {
+        web: "https://car-ecommerce-demo.vercel.app",
+      },
+    },
     tags: ["Django", "SQL", "Bootstrap"],
-    category: "web",
-    github: "https://github.com/Abdul1013/Car-Selling-Web-App",
-    live: "https://car-ecommerce-demo.vercel.app",
     features: [
       "Advanced search and filtering system",
-      "Secure payment processing with Paypal",
+      "Secure payment processing with PayPal",
       "Comprehensive inventory management",
       "User authentication and profiles",
       "Order tracking and history",
       "Admin dashboard for dealers",
     ],
-    technologies: ["Django", "SQLlite", "Bootstrap", "PayPall API"],
+    technologies: ["Django", "SQLite", "Bootstrap", "PayPal API"],
     collaborated: true,
     challenge:
       "Creating a scalable platform that could handle thousands of vehicle listings with complex filtering options while maintaining performance.",
@@ -500,15 +578,22 @@ export const projectsData: ProjectRecord[] = [
       "Implemented efficient database indexing, query optimization, and caching strategies to ensure fast search results even with large datasets.",
   },
   {
-    id: 7,
+    id: 12,
     title: "Student Planning App",
     description:
       "An intuitive app to help students manage their organization, planning, and academic schedules with smart reminders and progress tracking.",
-    image: "/plannerZ.png",
+    platforms: ["web"],
+    images: ["/plannerZ.png"],
+    links: {
+      github: {
+        web: "https://github.com/Abdul1013/Student-Organizing-App",
+        mobile: "",
+      },
+      live: {
+        web: "https://student-planner-demo.vercel.app",
+      },
+    },
     tags: ["HTML", "CSS", "JavaScript", "MongoDB"],
-    category: "web",
-    github: "https://github.com/Abdul1013/Student-Organizing-App",
-    live: "https://student-planner-demo.vercel.app",
     features: [
       "Customizable academic calendar",
       "Assignment tracking with priority levels",
@@ -527,28 +612,33 @@ export const projectsData: ProjectRecord[] = [
       "Chart.js",
       "PWA",
     ],
+    collaborated: false,
     challenge:
       "Designing an intuitive interface that would appeal to students while providing comprehensive planning features without overwhelming users.",
     solution:
       "Conducted extensive user research with students to create a minimalist yet powerful interface with progressive disclosure of advanced features.",
   },
   {
-    id: 8,
+    id: 13,
     title: "StudyHub",
     description:
-      "A Learning platform for student to prepare for exams using AI with tools like study/flashcards and quize .",
-    image: "studentHub.png",
+      "A learning platform for students to prepare for exams using AI with tools like study cards and quizzes.",
+    platforms: ["web"],
+    images: ["studentHub.png"],
+    links: {
+      github: {
+        web: "https://github.com/Abdul1013/studyhub",
+        mobile: "",
+      },
+      live: {
+        web: "https://studenthub-delta.vercel.app/",
+      },
+    },
     tags: ["Next.js", "Groq", "Material UI", "Firebase"],
-    category: "web",
-    github: "https://github.com/Abdul1013/studyhub",
-    live: "https://studenthub-delta.vercel.app/",
     features: [
-      "AI-powered study card and quiz",
-      "Different study Mode",
+      "AI-powered study cards and quizzes",
+      "Different study modes",
       "Real-time collaborative document editing",
-      // "Video conferencing integration",
-      // "Resource library with search functionality",
-      // "Discussion forums for each subject",
       "Achievement system to encourage participation",
     ],
     technologies: [
@@ -560,54 +650,67 @@ export const projectsData: ProjectRecord[] = [
       "WebRTC",
       "Socket.io",
     ],
+    collaborated: false,
     challenge:
       "Building a platform that could facilitate meaningful connections between students with similar academic interests and enable effective collaboration.",
     solution:
       "Developed an AI-powered matching algorithm that analyzes study habits, academic interests, and learning styles to suggest compatible study partners.",
   },
   {
-    id: 9,
+    id: 14,
     title: "BiteBuzz",
     description:
-      "A food delivery responsive webapp for a snack restaurants to connect with their customers, make custom order and featuring real-time order tracking and personalized recommendations.",
-    image: "/Bitbuzz.png",
+      "A food delivery responsive web app for a snack restaurant to connect with customers, accept custom orders, and provide personalized recommendations.",
+    platforms: ["web", "mobile"],
+    images: ["/Bitbuzz.png"],
+    links: {
+      github: {
+        web: "https://github.com/Abdul1013/bitebuzz",
+        mobile: "",
+      },
+      live: {
+        web: "",
+      },
+    },
     tags: ["React", "Firebase", "Material UI"],
-    category: "web",
-    github: "https://github.com/Abdul1013/bitebuzz",
-    live: "", // Add TestFlight or APK link if available
     features: [
-      // "Real-time order tracking with map integration",
       "Personalized restaurant recommendations",
       "In-app payment processing",
       "Meal rating and review system",
       "Loyalty program for frequent customers",
       "Multi-language support",
     ],
-    // , "Redux", "Google Maps API", "Stripe"
     technologies: ["React Native", "Firebase", "Push Notifications", "i18n"],
     collaborated: true,
     challenge:
       "Creating a seamless experience for both customers and restaurant owners while ensuring accurate real-time order tracking.",
     solution:
-      "Implemented a robust real-time database with Firebase and integrated Google Maps API for precise location tracking and delivery time estimation.",
+      "Implemented a robust real-time database with Firebase and integrated location services for precise tracking and delivery time estimation.",
   },
   {
-    id: 10,
+    id: 15,
     title: "EasyTopUp",
     description:
       "A mobile app built with React Native for students and everyday users to easily buy airtime, data, and make subscriptions for utilities like cable TV and electricity, all in one secure platform.",
-    image: "/easyTopUp.png", // update with the correct preview image
+    platforms: ["mobile"],
+    images: ["/easyTopUp.png"],
+    links: {
+      github: {
+        web: "https://github.com/Abdul1013/EasyTopUp",
+        mobile: "",
+      },
+      live: {
+        web: "",
+      },
+    },
     tags: ["React Native", "Firebase", "Paystack"],
-    category: "mobile",
-    github: "https://github.com/Abdul1013/EasyTopUp",
-    live: "", // Add TestFlight or APK link if available
     features: [
       "Airtime top-up for all major Nigerian networks",
       "Mobile data purchase by bundle type",
       "Cable TV (DSTV, GOTV, Startimes) subscriptions",
       "Electricity bill payments",
       "In-app payment with Paystack",
-      "User auth and transaction history",
+      "User authentication and transaction history",
     ],
     technologies: [
       "React Native",
@@ -620,7 +723,7 @@ export const projectsData: ProjectRecord[] = [
     challenge:
       "Designing a user-friendly interface that simplifies mobile top-ups while ensuring secure transactions and accurate service delivery.",
     solution:
-      "Used Firebase for real-time database and authentication, and Paystack for handling secure, verified payments. Built a clean, responsive UI with Expo and integrated modular service APIs (e.g., VTpass).",
+      "Used Firebase for real-time database and authentication, Paystack for secure payments, Expo for a clean responsive UI, and modular service APIs for utility transactions.",
   },
 
   // {

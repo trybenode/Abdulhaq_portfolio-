@@ -1,0 +1,22 @@
+{
+  "name": "Abdulrasheed Olabanji | Software Engineer & AI Builder",
+  "short_name": "AO Portfolio",
+  "description": "Portfolio of Abdulrasheed Olabanji, a software engineer building secure and scalable AI, web, and mobile products.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/placeholder-logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
