@@ -20,15 +20,7 @@ export default function Projects() {
   const [activeTab, setActiveTab] = useState("all");
 
   const filteredProjects = projectsData.slice(0, 3);
-  // const project = projectsData.
 
-  // const categories = [
-  //   { id: "all", name: "All Projects" },
-  //   { id: "web", name: "Web Apps" },
-  //   { id: "mobile", name: "Mobile Apps" },
-  //   { id: "ai", name: "AI Projects" },
-  //   { id: "security", name: "Security" },
-  // ];
 
   return (
     <section id="projects" className="section-container">

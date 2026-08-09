@@ -14,21 +14,21 @@ const oldStandard = Old_Standard_TT({
   variable: "--font-old-standard",
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.abdulrasheedolabanji.com"
+const siteUrl = "https://abdulhaq.trybenode.online/"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Abdulrasheed Olabanji | Software Engineer & AI Builder",
+    default: "Abdulrasheed Olabanji | Software Security Engineer & AI Builder",
     template: "%s | Abdulrasheed Olabanji",
   },
   description:
     "Software engineer and AI builder building secure, scalable digital products across web, mobile, AI, and cybersecurity spaces.",
   applicationName: "Abdulrasheed Olabanji",
-  authors: [{ name: "Abdulrasheed Olabanji", url: "https://www.abdulrasheedolabanji.com" }],
+  authors: [{ name: "Abdulrasheed Olabanji", url: "https://abdulhaq.trybenode.online/" }],
   keywords: [
     "Abdulrasheed Olabanji",
-    "Software Engineer",
+    "Software Security Engineer",
     "AI Engineer",
     "Next.js Developer",
     "Full-Stack Developer",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Abdulrasheed Olabanji | Software Engineer & AI Builder",
     description:
       "Portfolio of Abdulrasheed Olabanji, a software engineer creating secure, scalable digital experiences with AI, web, and mobile technologies.",
-    url: "https://www.abdulrasheedolabanji.com",
+    url: "https://abdulhaq.trybenode.online/",
     siteName: "Abdulrasheed Olabanji",
     locale: "en_US",
     type: "website",

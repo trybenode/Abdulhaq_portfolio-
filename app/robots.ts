@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/private/", "/api/"],
     },
-    sitemap: "https://www.abdulrasheedolabanji.com/sitemap.xml",
-    host: "https://www.abdulrasheedolabanji.com",
+    sitemap: "https://abdulhaq.trybenode.online/sitemap.xml",
+    host: "https://abdulhaq.trybenode.online",
   }
 }
