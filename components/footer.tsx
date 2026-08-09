@@ -1,5 +1,7 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react"
+import { NEXT_HMR_REFRESH_HEADER } from "next/dist/client/components/app-router-headers"
 import Link from "next/link"
+import Contact from "./contact"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -17,11 +19,18 @@ export default function Footer() {
     { icon: <Linkedin className="h-5 w-5" />, label: "LinkedIn", href: "https://www.linkedin.com/in/abdulthedev/" },
     { icon: <Twitter className="h-5 w-5" />, label: "Twitter", href: "https://x.com/abdulthedev?s=21&t=UjMu7J55mFPoIq0r6jZmNg" },
     { icon: <Mail className="h-5 w-5" />, label: "Email", href: "mailto:abdulhaqabdulrasheed@gmail.com" },
+     {
+        icon: <Phone className="h-5 w-5" />,
+        label: "Phone",
+        NEXT_HMR_REFRESH_HEADER: "+234 7083186357",
+      },
   ]
+    
 
   return (
     <footer className="bg-primary/5 border-t border-primary/10 mt-16 w-full">
       <div className="max-w-7xl mx-auto  items-center px-4 py-12 sm:px-6 lg:px-8">
+        <Contact/>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <h3 className="text-xl font-bold mb-4 text-primary">Abdulrasheed Olabanji</h3>
@@ -62,8 +71,9 @@ export default function Footer() {
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Location</h3>
-            <p className="text-muted-foreground">Abuja, Nigeria</p>
+           <span className="flex"> <MapPin/> <p className="text-muted-foreground ml-2"> Abuja, Nigeria</p> </span>
             <p className="text-muted-foreground mt-2">Available for remote work, collaboration and full time work worldwide</p>
+            
           </div>
         </div>
 

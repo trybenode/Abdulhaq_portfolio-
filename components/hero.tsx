@@ -50,16 +50,16 @@ export default function Hero() {
               <div className="inline-block px-3 py-1 mb-6 rounded-full bg-primary/10 text-primary text-sm">
                 <span>{currentDay}</span> • <span>{currentTime}</span>
               </div>
-              <h1 className="text-xl md:text-2xl lg:text-2xl font-bold mb-6">
-                DESIGN • DEVELOP • INSPIRE
+              <h1 className="text-xl md:text-2xl lg:text-2xl font-bold mb-6 text-center">
+                DESIGN • DEVELOP • AUTOMATE •SECURE • INSPIRE 
               </h1>
               <motion.h4
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-sm font-bold tracking-tighter"
+                className="text-sm font-bold tracking-tighter mb-4"
               >
-                orchestrating AI | solving frontier Problem | Building the
+                prototyping ideas | orchestrating AI | solving frontier Problem | Building the
                 Impossible
               </motion.h4>
 

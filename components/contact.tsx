@@ -64,41 +64,6 @@ export default function Contact() {
     }
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="h-5 w-5" />,
-      label: "Email",
-      value: "abdulhaqabdulrasheed@gmail.com",
-    },
-    {
-      icon: <Phone className="h-5 w-5" />,
-      label: "Phone",
-      value: "+234 7083186357",
-    },
-    {
-      icon: <MapPin className="h-5 w-5" />,
-      label: "Location",
-      value: "Abuja, Nigeria",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: <Github className="h-5 w-5" />,
-      label: "GitHub",
-      href: "https://github.com/Abdul1013",
-    },
-    {
-      icon: <Linkedin className="h-5 w-5" />,
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/abdulthedev/",
-    },
-    {
-      icon: <Twitter className="h-5 w-5" />,
-      label: "Twitter",
-      href: "https://x.com/abdulthedev?s=21&t=UjMu7J55mFPoIq0r6jZmNg",
-    },
-  ];
 
   return (
     <section id="contact" className="section-container">
@@ -109,7 +74,7 @@ export default function Contact() {
         of my contact channels.
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 gap-12">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -117,42 +82,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-            <div className="space-y-4">
-              {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-2 rounded-full text-primary">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      {item.label}
-                    </p>
-                    <p className="font-medium">{item.value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Connect With Me</h3>
-            <div className="flex gap-4">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary/10 p-3 rounded-full text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                  aria-label={link.label}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
-          </div>
 
           <div>
             <h3 className="text-xl font-semibold mb-4">Newsletter</h3>
