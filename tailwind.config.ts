@@ -1,4 +1,5 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 const config = {
   darkMode: ["class"],
@@ -61,7 +62,9 @@ const config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
-        "old-standard": ["var(--font-old-standard)"],
+        display: ["var(--font-display)"],
+        mono: ["var(--font-mono)"],
+        "old-standard": ["var(--font-display)"],
       },
       keyframes: {
         "accordion-down": {
@@ -84,7 +87,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [animate],
+} satisfies Config;
 
-export default config
+export default config;
