@@ -1,21 +1,28 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
-
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 export default function NotFound() {
   return (
-    <div className="container flex flex-col items-center justify-center min-h-[70vh] px-4 text-center">
-      <h1 className="text-6xl font-bold text-primary mb-4">404</h1>
-      <h2 className="text-2xl font-semibold mb-6">Page Not Found</h2>
-      <p className="text-muted-foreground mb-8 max-w-md">
-        The page you are looking for doesn't exist or has been moved.
-      </p>
-      <Button asChild>
-        <Link href="/" className="flex items-center gap-2">
-          <ArrowLeft size={16} />
-          <span>Back to Home</span>
-        </Link>
-      </Button>
-    </div>
-  )
+    <main id="main-content" className="inner-page section-wrap">
+      <div className="page-heading">
+        <span className="eyebrow">404 / SIGNAL NOT FOUND</span>
+        <h1>
+          Outside the
+          <br />
+          <em>known system.</em>
+        </h1>
+        <p>
+          This page could not be found. Return to the command interface or
+          explore the mission archive.
+        </p>
+        <div className="case-links">
+          <Link href="/" className="bs-button primary">
+            Return home <ArrowUpRight size={16} />
+          </Link>
+          <Link href="/projects" className="text-link">
+            Explore projects <ArrowUpRight size={16} />
+          </Link>
+        </div>
+      </div>
+    </main>
+  );
 }

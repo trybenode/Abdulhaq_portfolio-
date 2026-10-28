@@ -1,36 +1,30 @@
-import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+import Journey from "@/components/sections/journey";
+import Hero from "@/components/sections/hero";
+import Profile from "@/components/sections/profile";
+import Capabilities from "@/components/sections/capabilities";
+import Missions from "@/components/sections/missions";
+import Process from "@/components/sections/process";
+import FieldNotes from "@/components/sections/field-notes";
+import SecureChannel from "@/components/sections/contact";
 import HomeStructuredData from "@/components/structured-data";
-
 export const metadata: Metadata = {
-  title: "Home",
-  description:
-    "Abdulrasheed Olabanji builds secure, scalable products using Next.js, React Native, AI, and modern engineering practices.",
-  alternates: {
-    canonical: "/",
-  },
+  title: { absolute: "Abdulhaq.it — Software Engineer & IT Geek" },
+  alternates: { canonical: "/" },
 };
-
-const Hero = dynamic(() => import("@/components/hero"));
-const About = dynamic(() => import("@/components/about"));
-const Skills = dynamic(() => import("@/components/skills"));
-const SkillSection = dynamic(() => import("@/components/skillSection"));
-const Projects = dynamic(() => import("@/components/projects"));
-const Blog = dynamic(() => import("@/components/blog"));
-const Contact = dynamic(() => import("@/components/contact"));
-
 export default function Home() {
   return (
     <>
       <HomeStructuredData />
-      <main className="min-h-screen">
+      <main id="main-content">
         <Hero />
-        <About />
-        <Skills />
-        <SkillSection />
-        <Projects />
-        <Blog />
-        {/* <Contact /> */}
+        <Journey />
+        <Profile />
+        <Capabilities />
+        <Missions />
+        <Process />
+        <FieldNotes />
+        <SecureChannel />
       </main>
     </>
   );

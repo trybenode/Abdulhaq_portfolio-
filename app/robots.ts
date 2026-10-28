@@ -1,13 +1,9 @@
-import type { MetadataRoute } from "next"
-
+import type { MetadataRoute } from "next";
+import { site } from "@/config/site";
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: ["/private/", "/api/"],
-    },
-    sitemap: "https://abdulhaq.trybenode.online/sitemap.xml",
-    host: "https://abdulhaq.trybenode.online",
-  }
+    rules: { userAgent: "*", allow: "/", disallow: ["/api/", "/private/"] },
+    sitemap: `${site.url}/sitemap.xml`,
+    host: site.url,
+  };
 }
