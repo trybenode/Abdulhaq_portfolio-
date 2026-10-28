@@ -1,257 +1,262 @@
+import DescribedArchitecture from "@/components/projects/described-architecture";
+import { engineeringSummaries } from "@/content/projects/engineering-summaries";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import {
-  ArrowLeft,
-  ExternalLink,
-  Github,
-  Code,
-  CheckCircle2,
-  Lightbulb,
-  Puzzle,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { ProjectGallery } from "@/components/project-gallery";
-import { getProjectImages, projectsData } from "@/lib/projects-data";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.abdulrasheedolabanji.com"
-
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const { id } = await params
-  const project = projectsData.find((item) => item.id.toString() === id)
-
-  if (!project) {
-    return {
-      title: "Project not found",
-      description: "The requested project could not be found.",
-    }
-  }
-
-  return {
-    title: project.title,
-    description: project.description,
-    alternates: {
-      canonical: `/projects/${project.id}`,
-    },
-    openGraph: {
-      title: project.title,
-      description: project.description,
-      url: `${siteUrl}/projects/${project.id}`,
-      type: "website",
-      images: [
-        {
-          url: getProjectImages(project)[0] || "/og-image.svg",
-          width: 1200,
-          height: 630,
-          alt: `${project.title} project preview`,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: project.title,
-      description: project.description,
-      images: [getProjectImages(project)[0] || "/og-image.svg"],
-    },
-  }
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { projectsData, getProjectImages } from "@/lib/projects-data";
+import { caseStudies } from "@/content/projects/case-studies";
+import EvidenceGallery from "@/components/projects/evidence-gallery";
+import { site } from "@/config/site";
+export function generateStaticParams() {
+  return projectsData.map((project) => ({ id: String(project.id) }));
 }
-
-export default async function ProjectDetailPage({
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const project = projectsData.find((p) => String(p.id) === id);
+  return project
+    ? {
+        title: project.title,
+        description: project.description,
+        alternates: { canonical: `/projects/${id}` },
+        openGraph: {
+          title: project.title,
+          description: project.description,
+          url: `${site.url}/projects/${id}`,
+          images: ["/opengraph-image"],
+        },
+      }
+    : { title: "Project not found", robots: { index: false } };
+}
+const sections = [
+  ["briefing", "Mission briefing"],
+  ["problem", "Problem / threat model"],
+  ["architecture", "Architecture"],
+  ["execution", "Engineering execution"],
+  ["security", "Security controls"],
+  ["outcomes", "Outcomes"],
+  ["hardening", "Hardening notes"],
+  ["evidence", "Evidence"],
+];
+export default async function ProjectPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = await params
-  const project = projectsData.find((p) => p.id.toString() === id);
-
-  if (!project) {
-    notFound();
-  }
-
-  // Find related projects (same category, excluding current project)
-  const relatedProjects = projectsData
-    .filter((p) => p.category === project.category && p.id !== project.id)
-    .slice(0, 2);
-
+  const { id } = await params;
+  const project = projectsData.find((p) => String(p.id) === id);
+  if (!project) notFound();
+  const study = caseStudies[id];
+  const images = getProjectImages(project).filter(
+    (image) => !image.includes("placeholder"),
+  );
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.description,
+    url: `${site.url}/projects/${id}`,
+  };
   return (
-    <main className="container mx-auto py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
-        <Link
-          href="/projects"
-          className="inline-flex items-center text-primary hover:text-primary/80 mb-8"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Projects
-        </Link>
-
-        <div className="mb-8">
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.tags.map((tag) => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-          <h1 className="text-4xl font-bold mb-4">
-            {project.title}
-            <span className=" ml-4 py-2 px-4 text-sm rounded-lg font-bold bg-white text-amber-700">{project.collaborated ? "Collaborated" : ""}</span>
-          </h1>
-          <p className="text-xl text-muted-foreground">{project.description}</p>
+    <main id="main-content" className="inner-page section-wrap">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <Link className="back-link" href="/projects">
+        <ArrowLeft size={14} /> ALL MISSIONS
+      </Link>
+      <header className="page-heading">
+        <span className="eyebrow">MISSION / {id.padStart(3, "0")}</span>
+        <h1>
+          {project.title}
+          <em>.</em>
+        </h1>
+        <p>{project.description}</p>
+        <div className="case-meta">
+          {project.technologies.map((tech) => (
+            <span key={tech}>{tech}</span>
+          ))}
         </div>
-
-        <ProjectGallery project={project} />
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center gap-2 mb-4 text-primary">
-                <Code className="h-5 w-5" />
-                <h2 className="text-lg font-semibold">Technologies</h2>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <Badge key={tech} variant="outline">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center gap-2 mb-4 text-primary">
-                <Lightbulb className="h-5 w-5" />
-                <h2 className="text-lg font-semibold">Challenge</h2>
-              </div>
-              <p className="text-muted-foreground">{project.challenge}</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center gap-2 mb-4 text-primary">
-                <Puzzle className="h-5 w-5" />
-                <h2 className="text-lg font-semibold">Solution</h2>
-              </div>
-              <p className="text-muted-foreground">{project.solution}</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Key Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {project.features.map((feature, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                <p>{feature}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Project Details</h2>
-          <div className="prose prose-lg dark:prose-invert max-w-none">
-            <p>
-              The {project.title} was developed to address{" "}
-              {(project.challenge ?? "").toLowerCase()} This project showcases
-              my skills in {project.technologies.slice(0, 3).join(", ")}, and
-              other technologies.
-            </p>
-
-            <p>
-              During development, I focused on creating a solution that would be
-              both effective and user-friendly. The approach involved{" "}
-              {(project.solution ?? "").toLowerCase()}
-            </p>
-
-            <p>
-              The application features a clean, intuitive interface that allows
-              users to easily navigate and utilize all functionality. Key
-              features include {project.features.slice(0, 3).join(", ")}, and
-              more.
-            </p>
-
-            <p>
-              This project demonstrates my ability to understand complex
-              problems and develop effective solutions using modern technologies
-              and best practices in software development.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 mb-16">
-          <Button asChild className="flex-1">
+        <div className="case-links">
+          {project.github && (
             <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2"
-            >
-              <ExternalLink size={18} />
-              <span>View Live Demo</span>
-            </a>
-          </Button>
-
-          <Button variant="outline" asChild className="flex-1">
-            <a
+              className="bs-button"
               href={project.github}
               target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2"
+              rel="noreferrer"
             >
-              <Github size={18} />
-              <span>View Source Code</span>
+              Repository <ArrowUpRight size={16} />
             </a>
-          </Button>
+          )}
+          {project.live && (
+            <a
+              className="bs-button"
+              href={project.live}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Recorded demo URL <ArrowUpRight size={16} />
+            </a>
+          )}
         </div>
-
-        {/* related project section? */}
-        {relatedProjects.length > 0 && (
-          <div>
-            <Separator className="mb-8" />
-            <h2 className="text-2xl font-semibold mb-6">Related Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {relatedProjects.map((relatedProject) => (
-                <Card
-                  key={relatedProject.id}
-                  className="overflow-hidden border-0 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="relative h-48">
-                    <Image
-                      src={getProjectImages(relatedProject)[0]}
-                      alt={relatedProject.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-6">
-                    <Badge className="mb-2">{relatedProject.category}</Badge>
-                    <h3 className="text-lg font-semibold mb-2 hover:text-primary transition-colors">
-                      <Link href={`/projects/${relatedProject.id}`}>
-                        {relatedProject.title}
-                      </Link>
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                      {relatedProject.description}
-                    </p>
-                    <Button variant="ghost" size="sm" asChild className="mt-2">
-                      <Link href={`/projects/${relatedProject.id}`}>
-                        View project
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+      </header>
+      {images.length ? (
+        <EvidenceGallery images={images} title={project.title} />
+      ) : (
+        <div className="draft-panel">
+          <span className="eyebrow">EVIDENCE PENDING</span>
+          <h2>Product imagery is being prepared.</h2>
+          <p>
+            This case study preserves the recorded project concept. Screenshots
+            and implementation evidence have not been supplied.
+          </p>
+        </div>
+      )}
+      <div className="case-body">
+        <nav aria-label="Case study sections" className="case-toc">
+          {sections.map(([anchor, title]) => (
+            <a key={anchor} href={`#${anchor}`}>
+              {title}
+            </a>
+          ))}
+        </nav>
+        <div>
+          <div className="evidence-notice">
+            Evidence note: screenshots support the visible interface.
+            Architecture, features and controls below are descriptions from the
+            existing project record unless otherwise stated. Linked repositories
+            and demos have not been verified for current availability.
           </div>
-        )}
+          <section className="case-section" id="briefing">
+            <h2>Mission briefing</h2>
+            <p>{study?.context || project.description}</p>
+            <p>
+              <strong>Role:</strong>{" "}
+              {study?.role ||
+                (project.collaborated
+                  ? "Collaborative project. Individual responsibilities and timeline pending."
+                  : "Recorded as an individual project. Responsibilities and timeline pending.")}
+            </p>
+          </section>
+          <section className="case-section" id="problem">
+            <h2>Problem / threat model</h2>
+            <p>{project.challenge || "Detailed problem statement pending."}</p>
+            <p>
+              Threat-model review is pending. Relevant questions include who can
+              access each resource, which data needs protection, and how the
+              system behaves when requests fail or are repeated. These are
+              review questions, not findings from an audit.
+            </p>
+          </section>
+          <section className="case-section" id="architecture">
+            <h2>Architecture</h2>
+            <p>
+              {study?.architecture ||
+                project.solution ||
+                "Architecture details pending source review."}
+            </p>
+          </section>
+          {engineeringSummaries[id] && (
+            <DescribedArchitecture summary={engineeringSummaries[id]} />
+          )}
+          <section className="case-section" id="execution">
+            <h2>Engineering execution</h2>
+            <p>{project.solution || "Implementation details pending."}</p>
+            <h3 className="eyebrow">
+              FEATURES DESCRIBED IN THE PROJECT RECORD
+            </h3>
+            <ul>
+              {project.features.map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
+          </section>
+          <section className="case-section" id="security">
+            <h2>Security controls</h2>
+            <p>
+              {study?.securityControls ||
+                "The portfolio source does not provide sufficient implementation evidence to substantiate security controls. Details pending source review."}
+            </p>
+          </section>
+          <section className="case-section" id="outcomes">
+            <h2>Outcomes</h2>
+            <p>
+              {study?.outcomes ||
+                "The project record and available assets are preserved here. Current product status and measurable outcomes have not been verified."}
+            </p>
+          </section>
+          <section className="case-section" id="hardening">
+            <h2>Hardening notes</h2>
+            <p>Proposed review areas for a future iteration:</p>
+            <ul>
+              {(
+                study?.hardeningNotes || [
+                  "Document authorization and data-validation boundaries.",
+                  "Establish failure/retry behavior and observability.",
+                  "Review accessibility and deployment configuration.",
+                ]
+              ).map((note) => (
+                <li key={note}>{note}</li>
+              ))}
+            </ul>
+          </section>
+          <section className="case-section" id="evidence">
+            <h2>Evidence</h2>
+            <div className="case-evidence">
+              {study?.evidence.map((evidence, i) =>
+                evidence.href ? (
+                  <a
+                    key={i}
+                    href={evidence.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {evidence.label}
+                    <ArrowUpRight size={15} />
+                  </a>
+                ) : (
+                  <span key={i}>{evidence.label}</span>
+                ),
+              )}
+              {!study && (
+                <span>
+                  {images.length
+                    ? `${images.length} supplied product images`
+                    : "No product screenshots supplied."}
+                </span>
+              )}
+            </div>
+          </section>
+          <aside className="case-missing">
+            <h3>Details still to document</h3>
+            <ul>
+              {(
+                study?.missing || [
+                  "Individual role and delivery dates",
+                  "Implementation evidence",
+                  "Verified outcomes and product status",
+                ]
+              ).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </aside>
+          <div className="case-links">
+            <Link className="bs-button primary" href="/#contact">
+              Discuss a similar project <ArrowUpRight size={16} />
+            </Link>
+            <Link className="text-link" href="/projects">
+              Back to the archive <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </div>
       </div>
     </main>
   );

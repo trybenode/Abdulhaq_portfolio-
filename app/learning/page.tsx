@@ -1,51 +1,67 @@
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
-import DashboardHeader from "@/components/learning/dashboard-header";
-import RoadmapSprints from "@/components/learning/roadmap-sprints";
-import GitHubContributions from "@/components/learning/github-contributions";
-import CurrentCourses from "@/components/learning/current-courses";
-import AIReflections from "@/components/learning/ai-reflections";
-import LearningStats from "@/components/learning/learning-stats";
-import { Tabs } from "@radix-ui/react-tabs";
 import type { Metadata } from "next";
-
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { site } from "@/config/site";
 export const metadata: Metadata = {
-  title: "Learning Dashboard",
+  title: "Learning log",
   description:
-    "Track Abdulrasheed Olabanji's learning journey, current courses, roadmap, and technical growth across software engineering and AI.",
-  alternates: {
-    canonical: "/learning",
-  },
+    "An evolving focus on software engineering and defensive security.",
+  alternates: { canonical: "/learning" },
 };
-
-export default function LearningDashboard() {
+export default function Learning() {
   return (
-    <main className="container mx-auto py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <Link
-          href="/"
-          className="inline-flex items-center text-primary hover:text-primary/80 mb-8"
+    <main id="main-content" className="inner-page section-wrap">
+      <header className="page-heading">
+        <span className="eyebrow">RESEARCH / CONTINUOUS DEVELOPMENT</span>
+        <h1>
+          Stay curious.
+          <br />
+          <em>Keep building.</em>
+        </h1>
+        <p>
+          My learning interests connect practical software engineering with a
+          deeper understanding of security. This page records areas of focus,
+          without simulated activity or completion statistics.
+        </p>
+      </header>
+      <div className="learning-grid">
+        {[
+          {
+            title: "Application security",
+            body: "Exploring secure coding, trust boundaries, authentication and authorization in the applications I build.",
+          },
+          {
+            title: "Systems & backend engineering",
+            body: "Deepening my understanding of API design, data consistency, background processing and operational reliability.",
+          },
+          {
+            title: "Defensive security",
+            body: "Learning the fundamentals of monitoring, incident response and blue-team operations.",
+          },
+          {
+            title: "Product engineering",
+            body: "Continuing to develop web and mobile experiences with attention to performance, accessibility and useful interaction.",
+          },
+        ].map((item, index) => (
+          <section className="learning-card" key={item.title}>
+            <span className="eyebrow">FOCUS / 0{index + 1}</span>
+            <h2>{item.title}</h2>
+            <p>{item.body}</p>
+          </section>
+        ))}
+      </div>
+      <div className="case-links">
+        <a
+          className="bs-button primary"
+          href={site.github}
+          target="_blank"
+          rel="noreferrer"
         >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Home
+          View actual GitHub activity <ArrowUpRight size={16} />
+        </a>
+        <Link className="text-link" href="/projects">
+          Explore the work <ArrowUpRight size={16} />
         </Link>
-
-        <DashboardHeader />
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-          <div className="lg:col-span-2 space-y-8">
-            <RoadmapSprints />
-            <Tabs>
-              <GitHubContributions />
-            </Tabs>
-            <AIReflections />
-          </div>
-
-          <div className="space-y-8">
-            <LearningStats />
-            <CurrentCourses />
-          </div>
-        </div>
       </div>
     </main>
   );
