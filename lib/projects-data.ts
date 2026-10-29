@@ -83,7 +83,7 @@ export const projectsData: ProjectRecord[] = [
     description:
       "A decentralized, cross-platform campus marketplace ecosystem. It enables students to buy/sell goods, hire services, and build personal brands, utilizing a unified backend to serve both web and mobile users seamlessly.",
     platforms: ["web", "mobile"],
-    images: ["/trybemarketWeb.png", "/trybemarketMobile.png", "/ldx.png"],
+    images: ["/trybemarketWeb.png", "/trybemarketm.png"],
     github: "https://github.com/trybenode/trybemarket-web",
     live: "https://trybemarket.vercel.app/",
 
@@ -171,11 +171,11 @@ export const projectsData: ProjectRecord[] = [
     platforms: ["web", "mobile"],
     images: [
       "/Vgl1.png",
-      "/Vgl2.png",
-      "/Vgl3.png",
-      "vgl4.jpeg",
-      "/Vgl5.jpeg",
-      "/Vgl6.jpeg",
+      "/vgl2.png",
+      "/vgl3.png",
+      "/vgl4.jpeg",
+      "/vgl5.jpeg",
+      "/vgl6.jpeg",
     ],
 
     github: "https://github.com/Abdul1013/vigalentee.git",
@@ -228,7 +228,7 @@ export const projectsData: ProjectRecord[] = [
     description:
       "LibraFlow AI is an intelligent library resource management system built for Lead City University. It streamlines book cataloguing, circulation, borrowing, returns, and overdue tracking while integrating fuzzy book search and personalized recommendations for a smarter library experience.",
     platforms: ["web"],
-    images: ["lb1.png", "lb2.png", "lb3.png", "lb4.png"],
+    images: ["/lb1.png", "/lb2.png", "/lb3.png", "/lb4.png"],
 
     github: "https://github.com/abdul1013/libraflow",
 
@@ -279,14 +279,14 @@ export const projectsData: ProjectRecord[] = [
       "EventFlow is a full-stack event ticketing and check-in platform that helps organizers manage events, issue QR tickets, optimize seating, and handle high-traffic check-ins reliably.",
     platforms: ["web", "mobile"],
     images: [
-      "evf1.png",
-      "evf2.png",
-      "evf3.png",
-      "evf4.png",
-      "evf5.jpeg",
-      "evf6.png",
-      "evf7.jpeg",
-      "evf8.jpeg",
+      "/evf1.png",
+      "/evf2.png",
+      "/evf3.png",
+      "/evf4.png",
+      "/evf5.jpeg",
+      "/evf6.png",
+      "/evf7.jpeg",
+      "/evf8.jpeg",
     ],
  
       github:  "https://github.com/abdul1013/eventflow_backend",
@@ -658,7 +658,7 @@ export const projectsData: ProjectRecord[] = [
     description:
       "A learning platform for students to prepare for exams using AI with tools like study cards and quizzes.",
     platforms: ["web"],
-    images: ["studentHub.png"],
+    images: ["/studentHub.png"],
     links: {
       github: {
         web: "https://github.com/Abdul1013/studyhub",

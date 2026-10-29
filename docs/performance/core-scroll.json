@@ -1,0 +1,28 @@
+{
+  "collectedAt": "2026-10-27T17:35:31.490Z",
+  "conditions": "Local production, headless Chrome, unthrottled CPU/network, software/hardware graphics depends on host; continuous 4s down/up scroll after explicit activation. Not field INP or physical-device evidence.",
+  "results": [
+    {
+      "width": 390,
+      "frameCap": 20,
+      "idleFPS": 19.997000449934372,
+      "scrollFPS": 19.917343026437504,
+      "scrollDurationMs": 4016.600000000559,
+      "rafP95Ms": 16.700000000000728,
+      "longTasksDuringScroll": [],
+      "oneCanvas": true,
+      "returnedToHero": true
+    },
+    {
+      "width": 1440,
+      "frameCap": 30,
+      "idleFPS": 29.489678612482884,
+      "scrollFPS": 28.926238092861855,
+      "scrollDurationMs": 4010.2000000001863,
+      "rafP95Ms": 16.700000000000728,
+      "longTasksDuringScroll": [],
+      "oneCanvas": true,
+      "returnedToHero": true
+    }
+  ]
+}
