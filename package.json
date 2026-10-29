@@ -95,5 +95,6 @@
   },
   "overrides": {
     "postcss-selector-parser": "7.1.7"
-  }
+  },
+  "packageManager": "npm@11.13.0"
 }
